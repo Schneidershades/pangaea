@@ -10,6 +10,8 @@ class PublishController extends Controller
 {
     public function store($topic, PublishFormRequest $request)
     {
+        putenv('PUBSUB_EMULATOR_HOST=localhost:9000');
+
     	$pubsub = new PubSubClient([
         	'projectId' => 'upbeat-element-308823',
         	'keyFilePath' => 'C:\Users\SchneiderShades\Projects\Laravel\pub\upbeat-element-308823-6ea8c52f15db.json',
