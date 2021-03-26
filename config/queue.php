@@ -67,6 +67,15 @@ return [
             'block_for' => null,
         ],
 
+        'pubsub' => [
+            'driver' => 'pubsub',
+            'queue'  => env('SUBSCRIPTION'),
+            'credentials' => [
+                'keyFilePath' => storage_path('Project-57139e419a13.json'), // credentials file path '.json'
+                'projectId'   => env('GCP_PROJECT_ID'),
+            ],
+        ],
+
     ],
 
     /*
