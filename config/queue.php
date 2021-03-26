@@ -71,11 +71,10 @@ return [
             'driver' => 'pubsub',
             'queue'  => env('SUBSCRIPTION'),
             'credentials' => [
-                'keyFilePath' => storage_path('Project-57139e419a13.json'), // credentials file path '.json'
+                'keyFilePath' => env('GOOGLE_CREDENTIALS_PATH', ''), // credentials file path '.json'
                 'projectId'   => env('GCP_PROJECT_ID'),
             ],
         ],
-
     ],
 
     /*

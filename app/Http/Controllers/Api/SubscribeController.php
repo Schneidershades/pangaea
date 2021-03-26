@@ -3,50 +3,29 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Enqueue\Gps\GpsConnectionFactory;
+use App\Http\Requests\SubscribeFormRequest;
+use Google\Cloud\PubSub\PubSubClient;
 
 class SubscribeController extends Controller
 {
-    public function store($topic)
+	public function store($topic, SubscribeFormRequest $request)
     {
-		// $connectionFactory = new GpsConnectionFactory();
+    	$pubsub = new PubSubClient([
+        	'projectId' => 'upbeat-element-308823',
+        	'keyFilePath' => 'C:\Users\SchneiderShades\Projects\Laravel\pub\upbeat-element-308823-6ea8c52f15db.json',
+    	]);
 
-		// $context = $connectionFactory->createContext();
+        $item = $pubsub->createTopic($topic);
+        $subscription = $item->subscription($topic);
+	    $subscription->create([
+	        'pushConfig' => ['pushEndpoint' => $request->url]
+	    ]);
 
-		// $context->createTopic('foo1');
+	    return [
+	    	'url' => $request->url,
+			'topic' => $topic
+	    ];
 
-		// $context->declareTopic('foo1');
-
-		// $ine = $context->createProducer()->send($fooTopic, 'cenicnei');
-
-		// dd($ine);
-
-		// $message = $context->createMessage('Hello world!');
-
-		// $context->declareTopic($fooTopic);
-
-		// $context->createProducer()->send($fooTopic, $message);
-		//
-		$context = (new GpsConnectionFactory(
-			// "gps:"
-			[
-	    		'projectId'   => "upbeat-element-308823",
-	    		'keyFilePath' => "C:\Users\SchneiderShades\Projects\Laravel\pub\key57139e419a13.json",
-	    		'retries'     => 3,
-	    		'scopes'      => "Scopes to be used for the request.",
-	    		// 'emulatorHost' => "http://localhost:9000",
-	    		'lazy'        => "",
-	  		]
-	  	))->createContext();
-
-		$fooTopic = $context->createTopic('foo');
-		$message = $context->createMessage('Hello world!');
-
-		$context->declareTopic($fooTopic);
-
-		$rr = $context->createProducer()->send($fooTopic, $message);
-
-		dd($rr);
+	    return $this->showMessage($data);
     }
 }

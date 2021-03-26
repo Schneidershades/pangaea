@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "upbeat-element-308823",
+  "private_key_id": "7317d26ea62d5e78207538af43c42cf6717e3321",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCdN6xPvGQDunw7\nZF/z4zEX1hnVhlqkVzUpI+bU+BcyW6N4HI4D/iCj+wZYiXjdQ9L5MpfzwDLevjEY\nLe0PTHWf0pKNYpOwrxONtM3NCEZqRxY9C6G6gCnUWK1GYvikt0hOwAe45Qd5qVaQ\nS7Eaol8kaHByvprjdiHrpQGwl/I3190JnmS1zjpDnhrJ84fnpWAlRjis/B1YXcPu\nL0j42+GjfyzYarXgsVFQGNJa4KWp8b3Q96mt6TKYGzfoSvPmWR7jGZ6YZj+YftnL\nhXitNkjuugmpqRFTm8r1irh/3NmvxksEI77e+oa4pRKGhkfkWBUySVWLQZdfOPx7\nmTgJJ21lAgMBAAECggEAD1cnGFmqzaVU6WusJC1LNUb2Gtxi/E2pGYRQCgBSLR79\ndqMcpV2W3EFKd3mkgjyTua6a3pUmsY7P1grnKnq8sHVYyPRxMkiHCSj2+tZfno+k\npxy7MWo/iqGDeM5/8fyTUOHSbxNj9RZVpLtKAu4MiA4ryLp5/Q9iFG7zmQJeh13A\n05GnhfTEER/Xz54knG59XiFApwKvZckyoGyvqHARldhZpqskg4uOa2PEIh0Pyxf6\nGj2vEJfW9jf+UohJnpaAyPQAAp9UUG4CNGhwDpiUklili7pz7nmTiiwJ6sKuFR+s\ntikRi8jX7xneWvfhq9mVFuEE7QFbQxfmV1AntdqIeQKBgQDUhUO24tBPE3hcjZNl\n4BybebzRlXmW4i6gmU4fUOSn0/M/qg3C5PQTJB82ftDpUNxBcUag/p/PQKqg/SWd\nYSiC0ScyY+lTwBWy/UKoXNzF6a7DjrnkUUD+pJ2LedPnDtpxpnkH24yCEsNjfBfB\nQBJHOTzwk3rKP0mI54xuMhY4zQKBgQC9Yequ9fBgbbtHQoMsKi27SZ8hFXmFgxS1\nt3zoPMx61megejk7iQ1maC1PcRX+nbq7yX8zaJ9dy2/OpznJ5l/sbYK7hnOdva0I\nKfXkW+TE8lwnjh5rDZBFeb8vQOEcgsQpwih4RI6/CwhOo2Cy8uMTdh3d1gcQM6ex\n+yJ5rIrm+QKBgDDPWroKZeWDh0Vajtv7GRbsYt2QAxkQYb0o+LRgk+On3lpk6Dw2\n8Yfj5/dQMRMlKzEsnxgi4vlq1MWc3qLCydchymrcX56Io3M0j7azfVFHVog7o544\nu0DA9h4uoOiUlL89iNaxKhhFzvJucdZErO4Gy2RFuxHwbycuZyZ4AnqRAoGAPn1l\ny++ZLqhmqH/Y+qS8TFVhrbABVj3HgqKWE6ekLVA8B2btJaj2g/kSImmFQWvYZwh4\n8YSvOWrcbMsfNXDP7BrCjZAy7DTfOJdn7L8pwJbcM60gemCSX2pp3HTDEv5PLhxD\n8FNm6sEAL7qXONUOeqh5+G4cDIuO5Rqh6JY3izkCgYEAyUhvvrCd0SsOopDeFiq5\nHvuz6HP9Niz4izM9ulyuNZ0II0NeBSFh4c86cVqnx5g3Qz4OpeKYqDkvwMTz9SfS\n15y10C+1Oz6jMblxSfBWbkhU6wETn1QgxqweY4D0iob2/ri6YaiBV6DcbY7lJ1xD\ngD5Th8tmmNqH+YhhWvMV8NI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pubsubapi@upbeat-element-308823.iam.gserviceaccount.com",
+  "client_id": "102217644428088645035",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pubsubapi%40upbeat-element-308823.iam.gserviceaccount.com"
+}
