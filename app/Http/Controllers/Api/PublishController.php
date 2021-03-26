@@ -20,7 +20,7 @@ class PublishController extends Controller
         ]);
 
 		return [
-	    	'topic' => $request->topic,
+	    	'topic' => $topic,
 			'data' => $request->message
 	    ];
     }
