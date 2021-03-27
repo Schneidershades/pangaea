@@ -62,15 +62,3 @@ The above example assumes that the start-server.sh script starts the publisher s
 server is running on port 9000 (subscriber). The subscriber will be getting data forwarded to it when its
 corresponding topic is published, which it will then receive and print the data to verify everything is working at the
 test1 and test2 endpoints.
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
