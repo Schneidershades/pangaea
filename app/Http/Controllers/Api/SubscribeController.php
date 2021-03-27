@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SubscribeFormRequest;
 use Google\Cloud\PubSub\PubSubClient;
+use Enqueue\Gps\GpsConnectionFactory;
+use App\Subscribers\InitiateSubscriber;
 
 class SubscribeController extends Controller
 {
@@ -13,8 +15,8 @@ class SubscribeController extends Controller
         putenv('PUBSUB_EMULATOR_HOST=localhost:9000');
 
     	$pubsub = new PubSubClient([
-        	'projectId' => 'upbeat-element-308823',
-        	'keyFilePath' => 'C:\Users\SchneiderShades\Projects\Laravel\pub\upbeat-element-308823-6ea8c52f15db.json',
+        	'projectId' => config('queue.connections.pubsub.credentials.projectId'),
+        	'keyFilePath' => config('queue.connections.pubsub.credentials.keyFilePath'),
     	]);
 
         $item = $pubsub->createTopic($topic);

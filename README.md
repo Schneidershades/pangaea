@@ -1,52 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Pangaea PubSub HTTP Notification
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Creating a HTTP notification system. A server (or set of servers) will keep track of topics subscribers where a topic is a string and a subscriber is an HTTP endpoint. When a message is published on a topic, it
+should be forwarded to all subscriber endpoints.
 
-## About Laravel
+## Publisher Server Endpoints
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Create a subscription
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+POST /subscribe/{topic}
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Expected Body
+{ url: string }
 
-## Learning Laravel
+Success Response
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+{url: string, topic: string }
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Example Request / Response
 
-## Laravel Sponsors
+Pangaea Take-home assignment
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+POST /subscribe/topic1
+Body
+{ url: "http://mysubscriber.test" }
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+Response:
+{ url: "http://mysubscriber.test", topic: "topic1"}
 
-## Contributing
+Publish message to topic
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+POST /publish/{topic}
+
+
+## Steps
+- clone the project https://github.com/Schneidershades/pangaea.git
+- Go to the directory of the project via your nodejs/command line directory and type "Composer Install"
+- Run "php artisan serve"
+- Download **[Cloud SDK installer](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe)** and install
+- Open the app and type gcloud components install pubsub-emulator gcloud components update to install components
+- gcloud beta emulators pubsub start --project=upbeat-element-308823 --host-port=127.0.0.1:9000
+- begin hitting your end point via the route of your project
+
+## Expected Response
+
+Should give a meaningful HTTP response code based on whether the publish was successful or not
+
+Payload sent to subscribers
+{
+topic: string
+data: object // whatever data was sent in the publish body
+}
+
+Full Examples:
+./start-server.sh
+curl -X POST -H "Content-Type: application/json" -d '{ "url": "http://localhost:9000/test1"}' http://localhost:8000/subscribe/topic1
+curl -X POST -H "Content-Type: application/json" -d '{ "url": "http://localhost:9000/test2"}' http://localhost:8000/subscribe/topic1
+curl -X POST -H "Content-Type: application/json" -d '{"message": "hello"}' http://localhost:8000/publish/topic1
+
+The above example assumes that the start-server.sh script starts the publisher server on port 8000 and another
+server is running on port 9000 (subscriber). The subscriber will be getting data forwarded to it when its
+corresponding topic is published, which it will then receive and print the data to verify everything is working at the
+test1 and test2 endpoints.
 
 ## Code of Conduct
 

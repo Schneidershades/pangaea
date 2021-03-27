@@ -13,9 +13,9 @@ class PublishController extends Controller
         putenv('PUBSUB_EMULATOR_HOST=localhost:9000');
 
     	$pubsub = new PubSubClient([
-        	'projectId' => 'upbeat-element-308823',
-        	'keyFilePath' => 'C:\Users\SchneiderShades\Projects\Laravel\pub\upbeat-element-308823-6ea8c52f15db.json',
-    	]);
+            'projectId' => config('queue.connections.pubsub.credentials.projectId'),
+            'keyFilePath' => config('queue.connections.pubsub.credentials.keyFilePath'),
+        ]);
 
 	    $pubsub->topic($topic)->publish([
             'data' => base64_encode($request->message),
